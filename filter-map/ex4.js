@@ -64,6 +64,12 @@ En prenant les deux exemples d'arguments d'entrée, on obtiendrait ceci en sorti
 */
 
 function getActivitiesMembers(activities, persons) {
+  return activities.map(x=>{
+    y = {};
+    y['activity'] = x;
+    y['persons'] = persons.filter(z=>~z.activities.indexOf(x)).map(z=>z.name);
+    return y;
+  })
 }
 
 
